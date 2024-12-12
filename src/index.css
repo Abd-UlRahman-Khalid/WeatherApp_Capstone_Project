@@ -44,7 +44,7 @@ form input {
   overflow: hidden;
 }
 .forecast {
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   overflow: hidden;
 }
 .forecast-container .forecast .forecast-content {
