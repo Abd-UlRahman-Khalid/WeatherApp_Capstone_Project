@@ -4,12 +4,18 @@ import umIcon from "../assets/icon-umberella.png";
 import comIcon from "../assets/icon-compass.png";
 import windIcon from "../assets/icon-wind.png";
 import { format } from "date-fns";
-
+import useWeatherStore from "../store/weatherStore";
 function Home() {
-  const [wdata, setwData] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [forecastData, setForecastData] = useState(null);
-  const [locationData, setLocationData] = useState(null);
+  const {
+    wdata,
+    forecastData,
+    locationData,
+    searchQuery,
+    setWData,
+    setLocationData,
+    setForecastData,
+    setSearchQuery,
+  } = useWeatherStore();
 
   const days = [
     "Sunday",
@@ -37,6 +43,7 @@ function Home() {
 
   // Fetch data function
   const fetchWeatherData = async (city) => {
+    console.log(wdata);
     try {
       const response = await fetch(
         `https://api.weatherapi.com/v1/forecast.json?key=5426bf25fb40406590853711240812&q=${city}&days=3`
@@ -44,7 +51,7 @@ function Home() {
       if (response.ok) {
         const data = await response.json();
         setLocationData(data.location);
-        setwData(data.current);
+        setWData(data.current);
         setForecastData(data.forecast.forecastday);
       } else {
         console.error("Error fetching weather data");
