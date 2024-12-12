@@ -18,7 +18,7 @@ const Header = () => {
           <img src={logo} alt="Logo" className="w-24 h-auto" />
           <h3> Weather App</h3>
         </div>
-        <div className="flex justify-between items-center  space-x-8 py-4">
+        <div className="flex justify-between items-center  space-x-7 py-4">
           <Link to="/">
             <Button
               btnName="Home"
