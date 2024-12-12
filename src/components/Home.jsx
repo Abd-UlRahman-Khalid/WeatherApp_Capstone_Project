@@ -57,6 +57,9 @@ function Home() {
   // Handle search input change
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
+    if (searchQuery.trim()) {
+      fetchWeatherData(searchQuery);
+    }
   };
 
   // Handle form submission
